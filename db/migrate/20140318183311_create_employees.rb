@@ -7,5 +7,20 @@ class CreateEmployees < ActiveRecord::Migration
 
       t.timestamps
     end
+
+  Sale.find_each do |sale|
+    if sale.employee != nil
+      unless Employee.find_by(last: sale.employee.split[0]).exists?
+        first = sale.employee.split[0]
+        last = sale.employee.split[1]
+        email = sale.employee.split[2]
+        Employee.create(first: first, last: last, email: email)
+        puts "Employee #{sale.employee} created!"
+      else
+        puts "Employee #{sale.employee} already exists!"
+      end
+    end
+  end
+
   end
 end

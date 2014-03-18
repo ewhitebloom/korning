@@ -1,3 +1,3 @@
 class Product < ActiveRecord::Base
-  belongs_to :sales
+  has_many :sales
 end

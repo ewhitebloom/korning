@@ -1,3 +1,3 @@
 class Employee < ActiveRecord::Base
-  belongs_to :sales
+  has_many :sales
 end

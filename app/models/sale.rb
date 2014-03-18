@@ -1,3 +1,5 @@
 class Sale < ActiveRecord::Base
-  has_one :product, :customer, :employee
+  belongs_to :product
+  belongs_to :employee
+  belongs_to :customer
 end
