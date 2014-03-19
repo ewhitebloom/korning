@@ -4,6 +4,6 @@ class RemoveProductNameFromSales < ActiveRecord::Migration
   end
 
   def down
-    add_column :sales, :product_name
+    add_column :sales, :product_name, :string
   end
 end
