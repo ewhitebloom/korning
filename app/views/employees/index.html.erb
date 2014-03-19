@@ -16,10 +16,19 @@
         <td><%= employee.first %></td>
         <td><%= employee.last %></td>
         <td><%= employee.email %></td>
-        <% @sales.each do |employee| %>
-        <td><%= employee.sales %></td>
+
+        <% employee.sales.each do |employee_sale| %>
+        <td><%= employee_sale.id %></td>
+        <td><%= employee_sale.id %></td>
+        <td><%= employee_sale.sale_amount %></td>
+        <td><%= employee_sale.units_sold %></td>
+        <td><%= employee_sale.invoice_no %></td>
+        <td><%= employee_sale.invoice_frequency %></td>
+        <td><%= employee_sale.product.name %></td>
+        <td><%= employee_sale.customer.name %></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
+
 </table>
