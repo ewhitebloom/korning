@@ -6,7 +6,7 @@ class CalculateUnitPriceForEachProduct < ActiveRecord::Migration
     Sale.find_each do |sale|
       product = Product.find_by(id: sale.product_id)
      unless product.unit_price != nil
-      sale.sale_amount / sale.units_sold = product.unit_price
+      product.unit_price = (sale.sale_amount.to_f/sale.units_sold.to_f).round(2)
       product.save
      end
     end
