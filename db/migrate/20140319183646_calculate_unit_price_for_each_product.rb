@@ -5,7 +5,7 @@ class CalculateUnitPriceForEachProduct < ActiveRecord::Migration
     Product.reset_column_information
     Sale.find_each do |sale|
       product = Product.find_by(id: sale.product_id)
-     unless product.unit_price != nil
+     if product.unit_price == nil
       product.unit_price = (sale.sale_amount.to_f/sale.units_sold.to_f).round(2)
       product.save
      end
