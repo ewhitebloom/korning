@@ -8,7 +8,7 @@ class CreateProducts < ActiveRecord::Migration
 
   Sale.find_each do |sale|
        unless sale.product_name == nil
-          unless Product.find_by(name:sale.product_name).exists?
+          unless Product.where(name:sale.product_name).any?
             Product.create(name: sale.product_name)
             puts "Product #{sale.product_name} created!"
           else

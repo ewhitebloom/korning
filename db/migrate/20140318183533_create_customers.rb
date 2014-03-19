@@ -1,3 +1,4 @@
+require 'pry'
 class CreateCustomers < ActiveRecord::Migration
   def change
     create_table :customers do |t|
@@ -9,8 +10,8 @@ class CreateCustomers < ActiveRecord::Migration
     end
 
   Sale.find_each do |sale|
-    if sale.customer_and_account_no != nil
-      unless Customer.find_by( account: sale.customer_and_account_no.split[1]).exists?
+    unless sale.customer_and_account_no == nil
+      unless Customer.where(account: sale.customer_and_account_no.split[1]).any?
         name = sale.customer_and_account_no.split[0]
         account = sale.customer_and_account_no.split[1]
         Customer.create(name: name, account: account)
