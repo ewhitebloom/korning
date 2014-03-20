@@ -1,6 +1,7 @@
 class EmployeesController < ApplicationController
   def index
-    @employees = Employee.joins(sales: :product, sales: :customer)
+    @joins = Employee.joins(sales: [:product, :customer])
+    @employees = @joins.distinct
   end
 
   def show
