@@ -31,7 +31,7 @@
     </tr>
   </thead>
   <tbody>
-        <% @sales.each do |employee_sale| %>
+        <% employee.sales.each do |employee_sale| %>
         <tr>
           <td><%= employee_sale.id %></td>
           <td><%= employee_sale.sale_amount %></td>
