@@ -1,4 +1,4 @@
-<h1>Employees</h1>
+<h1>All Employee Sales Data</h1>
 
 <table>
   <thead>
@@ -6,9 +6,9 @@
       <th>First Name</th>
       <th>Last Name</th>
       <th>Email</th>
-      <th>Sales</th>
     </tr>
   </thead>
+
 
   <tbody>
     <% @employees.each do |employee| %>
@@ -17,10 +17,22 @@
         <td><%= employee.last %></td>
         <td><%= employee.email %></td>
        </tr>
-       <tr>
+  </tbody>
+  </table>
+  <table>
+   <thead>
+    <tr>
+      <th>Sale ID</th>
+      <th>Sale Amount</th>
+      <th>Units Sold</th>
+      <th>Invoice Number</th>
+      <th>Product Name</th>
+      <th>Customer Name</th>
+    </tr>
+  </thead>
+  <tbody>
         <% employee.sales.each do |employee_sale| %>
-
-          <td><%= employee_sale.id %></td>
+        <tr>
           <td><%= employee_sale.id %></td>
           <td><%= employee_sale.sale_amount %></td>
           <td><%= employee_sale.units_sold %></td>
@@ -28,8 +40,6 @@
           <td><%= employee_sale.invoice_frequency %></td>
           <td><%= employee_sale.product.name %></td>
           <td><%= employee_sale.customer.name %></td>
-          <td>        </td>
-          <td>Next Sale:</td>
         <% end %>
         </tr>
     <% end %>
