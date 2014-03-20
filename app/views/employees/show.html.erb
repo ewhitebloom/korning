@@ -30,17 +30,16 @@
   </tr>
 </thead>
 <tbody>
-
   <% @sales.each do |employee_sale| %>
   <tr>
-  <td><%= employee_sale.id %></td>
-  <td><%= employee_sale.sale_amount %></td>
-  <td><%= employee_sale.units_sold %></td>
-  <td><%= employee_sale.invoice_no %></td>
-  <td><%= employee_sale.invoice_frequency %></td>
-  <td><%= employee_sale.product.name %></td>
-  <td><%= employee_sale.customer.name %></td>
-  <td>        </td>
+    <td><%= employee_sale.id %></td>
+    <td><%= employee_sale.sale_amount %></td>
+    <td><%= employee_sale.units_sold %></td>
+    <td><%= employee_sale.invoice_no %></td>
+    <td><%= employee_sale.invoice_frequency %></td>
+    <td><%= employee_sale.product.name %></td>
+    <td><%= employee_sale.customer.name %></td>
+    <td>        </td>
   </tr>
   <% end %>
 
